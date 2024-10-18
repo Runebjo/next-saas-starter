@@ -42,8 +42,10 @@ Fun fact: the majority of the UI for this application was built with [v0](https:
 ## Getting Started
 
 ```bash
-git clone https://github.com/leerob/next-saas-starter
+git clone https://github.com/leerob/next-saas-starter [your-app-name]
 cd next-saas-starter
+remove .git folder
+init repo and publish to github
 pnpm install
 ```
 
@@ -84,6 +86,8 @@ stripe listen --forward-to localhost:3000/api/stripe/webhook
 ```
 
 ## Testing Payments
+
+To be able to upgrade membership to Base or Premium you need to add the products in the stripe Product Catalog with the name "Plus" and "Base"
 
 To test Stripe payments, use the following test card details:
 
