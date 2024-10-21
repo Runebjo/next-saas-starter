@@ -2,7 +2,6 @@
 
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-
 import { createClient } from '@/lib/supabase/server';
 
 export async function login(prevState: unknown, formData: FormData) {
@@ -43,4 +42,22 @@ export async function signup(prevState: unknown, formData: FormData) {
 
   revalidatePath('/', 'layout');
   redirect('/');
+}
+
+export async function logout() {
+  const supabase = await createClient();
+  await supabase.auth.signOut();
+  revalidatePath('/', 'layout');
+  redirect('/');
+}
+
+export async function getUser() {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.getUser();
+
+  if (data?.user != null) {
+    return data.user;
+  }
+
+  return null;
 }
