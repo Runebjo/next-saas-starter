@@ -9,7 +9,7 @@ export async function getUserProfile() {
   if (!user) {
     return null;
   }
-
+  console.log('Get user profile');
   const userProfile = await db
     .select()
     .from(userProfiles)
@@ -18,5 +18,6 @@ export async function getUserProfile() {
     )
     .limit(1);
 
-  return userProfile[0];
+  console.log('userProfile', userProfile);
+  return userProfile;
 }

@@ -47,10 +47,10 @@ async function Header() {
                 <Avatar className="cursor-pointer size-9">
                   <AvatarImage alt={user.name || ''} />
                   <AvatarFallback>
-                    {user.email
+                    {/* {user.email
                       .split(' ')
                       .map((n: string) => n[0])
-                      .join('')}
+                      .join('')} */}
                   </AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
