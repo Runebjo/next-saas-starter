@@ -14,7 +14,9 @@ export async function getUserProfile() {
     .select()
     .from(userProfiles)
     .where(
-      and(eq(userProfiles.userId, user.id), isNull(userProfiles.deletedAt))
+      and(
+        eq(userProfiles.userId, user.id), 
+        isNull(userProfiles.deletedAt))
     )
     .limit(1);
 
